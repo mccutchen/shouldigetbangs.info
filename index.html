@@ -16,7 +16,7 @@
 
         body {
             margin: 0;
-            background-color: deeppink;
+            background-color: #fff;
             color: #fff;
 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -26,6 +26,9 @@
             align-items: center;
             height: 100%;
             width: 100%;
+
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         h1 {
@@ -35,14 +38,17 @@
             font-size: 25rem;
         }
     </style>
-    <script>
-        let shouldI = Math.random() < 0.5;
-    </script>
 </head>
 
 <body>
     <h1>
-        <script>document.write(shouldI ? "YES" : "NO");</script>
+        <script>
+            (function () {
+                let shouldI = Math.random() < 0.5;
+                document.write(shouldI ? "YES" : "NO");
+                document.body.style.backgroundImage = "url(" + (shouldI ? "yes.gif" : "no.gif") + ")";
+            })();
+        </script>
     </h1>
 </body>
 
