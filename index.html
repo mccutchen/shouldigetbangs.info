@@ -45,8 +45,24 @@
         <script>
             (function () {
                 let shouldI = Math.random() < 0.5;
+                let imageChoices = {
+                    true: [
+                        "yes/albino.gif",
+                        "yes/anna.gif",
+                        "yes/jeremiah.gif",
+                        "yes/ringo.gif",
+                        "yes/sabrina.gif",
+                    ],
+                    false: [
+                        "no/judge.gif",
+                        "no/kristen.gif",
+                        "no/pantene.gif",
+                    ],
+                }[shouldI];
+                let imageCount = imageChoices.length;
+                let imageNumber = Math.floor(Math.random() * imageCount);
+                document.body.style.backgroundImage = "url(" + imageChoices[imageNumber] + ")";
                 document.write(shouldI ? "YES" : "NO");
-                document.body.style.backgroundImage = "url(" + (shouldI ? "yes.gif" : "no.gif") + ")";
             })();
         </script>
     </h1>
